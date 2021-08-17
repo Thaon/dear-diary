@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/diaries",
+      "handler": "diary.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/diaries/count",
+      "handler": "diary.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/diaries/:id",
+      "handler": "diary.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/diaries",
+      "handler": "diary.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/diaries/:id",
+      "handler": "diary.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/diaries/:id",
+      "handler": "diary.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

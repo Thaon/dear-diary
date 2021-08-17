@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "diaries",
+  "info": {
+    "name": "diary"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "diary"
+    },
+    "pages": {
+      "via": "diary",
+      "collection": "page"
+    }
+  }
+}

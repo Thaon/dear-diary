@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    },
+    "sentiment": {
+      "type": "enumeration",
+      "enum": [
+        "negative",
+        "neutral",
+        "positive"
+      ]
+    },
+    "advice": {
+      "type": "string"
+    },
+    "activity": {
+      "type": "string"
+    },
+    "diary": {
+      "model": "diary",
+      "via": "pages"
+    }
+  }
+}
