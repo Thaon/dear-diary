@@ -50,6 +50,34 @@ class Operations {
   }
 
   //Users ---------------------------------------------------------
+  register = async (username, email, password) => {
+    try {
+      let res = await axios.post(
+        this.API + "/auth/local/register",
+        {
+          username: username,
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (res.status == 200) {
+        Cookies.setCookie("TOKEN", res.data.jwt);
+        userStore.dispatch(setUser(res.data.user));
+        return {
+          state: "auth",
+        };
+      } else return { state: "no-auth" };
+    } catch (error) {
+      return { state: "no-auth" };
+    }
+  };
+
   login = async (username, password) => {
     try {
       let res = await axios.post(
