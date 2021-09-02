@@ -139,6 +139,52 @@ class Operations {
   };
 
   //Utils ---------------------------------------------------------
+  geDiary = async () => {
+    try {
+      let res = await axios.get(this.API + "/diaries");
+      if (res.status == 200) {
+        return res.data;
+      } else {
+        console.log("ERROR: Could not retrieve diary");
+        return null;
+      }
+    } catch (error) {
+      console.log("OPS!", error);
+      return null;
+    }
+  };
+
+  getPages = async () => {
+    try {
+      let res = await axios.get(this.API + "/pages");
+      if (res.status == 200) {
+        return res.data;
+      } else {
+        console.log("ERROR: Could not retrieve diary pages");
+        return null;
+      }
+    } catch (error) {
+      console.log("OPS!", error);
+      return null;
+    }
+  };
+
+  addPage = async (pageText) => {
+    try {
+      let res = await axios.post(this.API + "/pages", { content: pageText });
+      if (res.status == 200) {
+        return res.data;
+      } else {
+        console.log("ERROR: Could not create diary page");
+        return null;
+      }
+    } catch (error) {
+      console.log("OPS!", error);
+      return null;
+    }
+  };
+
+  //Utils ---------------------------------------------------------
   isLoggedIn = () => {
     let tok = Cookies.getCookie("TOKEN");
     return tok && tok.length > 0;
