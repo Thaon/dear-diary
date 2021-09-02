@@ -9,7 +9,7 @@ import Dashboard from "../screens/Dashboard";
 import { useEffect } from "react";
 import ops from "../operations";
 import { useState } from "react";
-import EditorResults from "../screens/EditorResults"
+import EditorResults from "../screens/EditorResults";
 import Editor from "./Editor";
 import List from "../screens/List";
 
@@ -27,20 +27,19 @@ function AppRouter(props) {
   }, []);
 
   return (
-    
     <Switch>
       <Route path="/login">
         <LoginScreen />
       </Route>
-      <PrivateRoute path="/home" Component={HomePage} />
       <PrivateRoute exact path={`/`} render={() => <Redirect to={`/home`} />} />
-      <Route path="/Answer" component={EditorResults}/>
-      <Route path="/Write" component={Editor}/>
-      <Route path="/Diary" component={List}/>
-      
-      {/* <PrivateRoute path={`/`} render={() => <Redirect to={`/home`} />} /> */}
+
+      <PrivateRoute path="/home" Component={HomePage} />
+      <PrivateRoute path="/Answer" Component={EditorResults} />
+      <PrivateRoute path="/Write" Component={Editor} />
+      <PrivateRoute path="/Diary" Component={List} />
+
+      <PrivateRoute path={`/`} render={() => <Redirect to={`/home`} />} />
     </Switch>
-    
   );
 }
 
