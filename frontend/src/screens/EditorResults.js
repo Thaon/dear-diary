@@ -1,5 +1,6 @@
 import Card from "../components/Card";
 import { makeStyles } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import NavBar from "../components/NavBar";
 function EditorResults() {
   const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,13 @@ function EditorResults() {
           text={"Testo attivita'"}
         />
       </div>
+      <Button
+        // onClick={}
+        color="secondary"
+        style={{ justifyContent: "center" }}
+      >
+        Salva
+      </Button>
     </>
   );
 }

@@ -4,7 +4,7 @@ function HomePage() {
   return (
     <div>
       <NavBar />
-      <h1>WELCOME TO YOUR DIARY</h1>
+      <h1 style={{justifyContent: "center"}}>WELCOME TO YOUR DIARY</h1>
     </div>
   );
 }
