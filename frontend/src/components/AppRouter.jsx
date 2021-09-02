@@ -2,12 +2,16 @@ import React from "react";
 
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { PrivateRoute } from "../helpers/PrivateRoute";
+import HomePage from "./HomePage";
 
 import LoginScreen from "../screens/LoginScreen";
 import Dashboard from "../screens/Dashboard";
 import { useEffect } from "react";
 import ops from "../operations";
 import { useState } from "react";
+import EditorResults from "../screens/EditorResults"
+import Editor from "./Editor";
+import List from "../screens/List";
 
 function AppRouter(props) {
   useEffect(() => {
@@ -23,14 +27,20 @@ function AppRouter(props) {
   }, []);
 
   return (
+    
     <Switch>
       <Route path="/login">
         <LoginScreen />
       </Route>
-      <PrivateRoute path="/home" Component={Dashboard} />
+      <PrivateRoute path="/home" Component={HomePage} />
       <PrivateRoute exact path={`/`} render={() => <Redirect to={`/home`} />} />
-      <PrivateRoute path={`/`} render={() => <Redirect to={`/home`} />} />
+      <Route path="/Answer" component={EditorResults}/>
+      <Route path="/Write" component={Editor}/>
+      <Route path="/Diary" component={List}/>
+      
+      {/* <PrivateRoute path={`/`} render={() => <Redirect to={`/home`} />} /> */}
     </Switch>
+    
   );
 }
 

@@ -28,7 +28,7 @@ const Login = (props) => {
           if (res.state == "auth") props.history.push("/home");
         }}
         color="secondary"
-        style={{justifyContent: "center"}}
+        style={{ justifyContent: "center" }}
       >
         Login
       </Button>
