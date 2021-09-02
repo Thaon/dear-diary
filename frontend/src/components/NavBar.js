@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, useHistory } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +41,11 @@ const useStyles = makeStyles((theme) => ({
 
 function NavBar() {
   const classes = useStyles();
+  const history = useHistory();
+  function logOut() {
+    localStorage.clear();
+    history.push('/login')
+  }
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.toolbar}>
@@ -79,8 +84,8 @@ function NavBar() {
               alt="Remy Sharp"
               src="https://images.everyeye.it/img-notizie/batman-cavaliere-oscuro-tornato-indossare-classico-bat-costume-v4-534443-1280x720.webp"
             />
-            <Button className={classes.login} color="inherit">
-              Login
+            <Button className={classes.login} color="inherit" onClick={logOut}>
+              Logout
             </Button>
           </Grid>
         </Toolbar>

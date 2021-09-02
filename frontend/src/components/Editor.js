@@ -32,6 +32,20 @@ function Editor() {
           />
         </Paper>
       </Grid>
+      <Button
+        // onClick={}
+        color="secondary"
+        style={{ justifyContent: "center" }}
+      >
+        Dammi Risposta
+      </Button>
+      <Button
+        // onClick={}
+        color="secondary"
+        style={{ justifyContent: "center" }}
+      >
+        Salva
+      </Button>
     </>
   );
 }
